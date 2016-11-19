@@ -1,7 +1,37 @@
+<!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-  <h1>Hello World</h1>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title>Testing Cards</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<style>
+			input.ng-invalid{ background-color: lightblue; }
+		</style>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+		<table>
+			<tr ng-repeat="x in names">
+				<td>{{ x.firstName }}</td>
+				<td>{{ x.lastName }}</td>
+				<td>{{ x.email }}</td>
+			</tr>
+		</table>
+
+		</div>
+
+		<script>
+		var app = angular.module('myApp', []);
+		app.controller('customersCtrl', function($scope, $http) {
+				$http.get("mysql_connect.php")
+				.then(function (response) {
+					$scope.names = response;
+					console.log(response);
+				});
+		});
+		</script>
+	</body>
 </html>
