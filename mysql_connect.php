@@ -9,11 +9,8 @@
 //	die("Connection failed: " . mysqli_connect_error());
 //}
 //echo "Connected successfully";
-$data['firstName'] = 'Nitzan';
-$data['lastName'] = 'Ben Ner';
-$data['email'] = 'nitzanbenner@gmail.com';
-$data['firstName'] = 'Roni';
-$data['lastName'] = 'shavit';
-$data['email'] = 'roni.shavit208@gmail.com';
+$data[] = 'Nitzan';
+$data[] = 'Roni';
+$data[] = 'test';
 echo json_encode($data);
 ?>
